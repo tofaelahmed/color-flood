@@ -23,7 +23,10 @@ class App extends Component {
   createNewGame(){
     let game = new Game(6,5);
     game.board.generateTiles();
-    let currentBest = localStorage.getItem('best', 0)
+    let currentBest = localStorage.getItem('best');
+    if(!currentBest) {
+      currentBest = 0;
+    }
     this.setState({game, isFinished: false, best:currentBest});
   }
 
