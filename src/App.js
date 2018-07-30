@@ -20,13 +20,14 @@ class App extends Component {
     this.createNewGame();
   }
 
+  getPlayersBestScore(){
+    return localStorage.getItem('best') || 0;
+  }
+
   createNewGame(){
     let game = new Game(6,5);
     game.board.generateTiles();
-    let currentBest = localStorage.getItem('best');
-    if(!currentBest) {
-      currentBest = 0;
-    }
+    let currentBest = this.getPlayersBestScore();
     this.setState({game, isFinished: false, best:currentBest});
   }
 
@@ -39,13 +40,13 @@ class App extends Component {
     this.setState({game: this.state.game});
 
     let totalMoves = this.state.game.totalMoves;
-    let currentBest = localStorage.getItem('best', 0);
+    let currentBest = this.getPlayersBestScore();
+
 
     if(this.state.game.isFinished()) {
 
       let updatedState = {isFinished: true};
-
-      if( currentBest > totalMoves){
+      if( totalMoves > currentBest){
         localStorage.setItem('best', totalMoves);
         updatedState.best = totalMoves;
       }
