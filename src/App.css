@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:regular,bold,italic&subset=latin,latin-ext');
+
+.App {
+  text-align: center;
+  color: #ffffff;
+  font-size: large;
+}
+
+.left {
+  margin-right:auto;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 0 20px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.new-game {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.grid {
+  margin: 0 auto;
+  width: 80vw;
+  max-width: 60vh;
+  height: 80vw;
+  max-height: 60vh;
+  font-size: 1rem;
+}
+
+.row {
+  display: flex;
+}
+
+.box {
+  margin: 2px;
+  color: black;
+  font-weight: bold;
+  flex: 1 0 auto;
+  position: relative;
+  border-radius: 5px;
+}
+
+.box:after {
+  content: "";
+  float:left;
+  display: block;
+  padding-top: 100%;
+}
+
+.circle {
+  width: 10%;
+  height: 0;
+  padding: 5% 0;
+  margin: 1em auto;
+  border-radius: 50%;
+}
+
+a {
+  font-size: large;
+  cursor: pointer;
+}
+
+.blink {
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
